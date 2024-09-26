@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LINQ_04_select_alias （基礎篇 - select 撰寫別名）</title>
+</head>
+<body>
+    <h3>基礎篇</h3>
+@{      
+        //==================================================
+        // 第一種作法，建立一個「查詢（Query）語法」。類似資料庫的國際標準 T-SQL指令的查詢句子。
+        <p>查詢（Query）語法</p>        
+        string[] words = { "aPPLE", "BlUeBeRrY", "cHeRry" };
+
+        var query = from w in words
+                           select new { Upper = w.ToUpper(), Lower = w.ToLower() };
+                           //        除了更改欄位名稱以外，也可以使用其他方法        
+
+        foreach (var s in query)
+        {
+            <p> @String.Format("英文小寫：{0}。英文大寫：{1}。", s.Upper, s.Lower)) </p>
+        }
+        
+    //===================================================
+    // 另一種寫法，「方法（Method）語法」
+        <hr /><p>方法（Method）語法</p>
+
+        foreach (var s in words.Select(w => new { Upper = w.ToUpper(), Lower = w.ToLower() }))
+        {
+            <p> @String.Format("英文小寫：{0}。英文大寫：{1}。", s.Upper, s.Lower)) </p>
+        }
+        // 這篇入門文章介紹很多「方法（Method）語法」的範例。值得一讀！
+        // https://blairrobinson757.medium.com/net-linq-queries-with-sql-117a0b7f8cb1 
+        //.Select(x => new 
+        //{
+        //  PName = x.ProductName,
+        //  PCode = x.ProductCode,
+        //  Profit = x.SoldQty * x.Price   // Profit是自創的新欄位名稱，用來代表銷售總金額（兩個原本的欄位相乘）
+        //})
+}
+
+</body>
+</html>
+

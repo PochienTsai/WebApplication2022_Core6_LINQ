@@ -1,0 +1,98 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LINQ_04letgroup</title>
+</head>
+<body>
+    <h3>請注意，此範例使用 let 當做方便儲存方法呼叫結果的位置，因此您不需要在 group 子句中呼叫方法兩次。 <br />
+        另外，在 group 子句中，為了避免「除以零」的例外狀況，程式碼也會進行檢查，以確定學生的平均值不是零。<br />
+    </h3>
+
+@{
+        //**********************************************
+        // 請參閱 /Models目錄下的 Student4.cs 
+        ////public class Student4
+        ////{
+        ////    public string FirstName { get; set; }
+        ////    public string LastName { get; set; }
+        ////    public int ID { get; set; }   // 比起上一個 Student.cs多了這兩個屬性
+        ////    public List<int> Scores;  // 改用 List<T>取代原本的陣列。 List<T>好用又強！傳統陣列比不上！
+        ////}
+        //**********************************************
+
+        //========================================
+        // 因為小類別（Student4.cs）裡面空空如也，所以動手加上幾筆資料、幾個學生的姓名與成績
+        //  Create a data source by using a collection initializer.
+        List<Student4> student4s = new List<Student4>
+        {
+           new Student4 {First="Svetlana", Last="Omelchenko", ID=111, Scores= new List<int> {97, 92, 81, 60}},
+           new Student4 {First="Claire", Last="O'Donnell", ID=112, Scores= new List<int> {75, 84, 91, 39}},
+           new Student4 {First="Sven", Last="Mortensen", ID=113, Scores= new List<int> {88, 94, 65, 91}},
+           new Student4 {First="Cesar", Last="Garcia", ID=114, Scores= new List<int> {97, 89, 85, 82}},
+           new Student4 {First="Debra", Last="Garcia", ID=115, Scores= new List<int> {35, 72, 91, 70}},
+           new Student4 {First="Fadi", Last="Fakhouri", ID=116, Scores= new List<int> {99, 86, 90, 94}},
+           new Student4 {First="Hanying", Last="Feng", ID=117, Scores= new List<int> {93, 92, 80, 87}},
+           new Student4 {First="Hugo", Last="Garcia", ID=118, Scores= new List<int> {92, 90, 83, 78}},
+           new Student4 {First="Lance", Last="Tucker", ID=119, Scores= new List<int> {68, 79, 88, 92}},
+           new Student4 {First="Terry", Last="Adams", ID=120, Scores= new List<int> {99, 82, 81, 79}},
+           new Student4 {First="Eugene", Last="Zabokritski", ID=121, Scores= new List<int> {96, 85, 91, 60}},
+           new Student4 {First="Michael", Last="Tucker", ID=122, Scores= new List<int> {94, 92, 91, 91} }
+        };
+
+        //==================================================
+        // 第一種作法，建立一個「查詢（Query）語法」。類似資料庫的國際標準 T-SQL指令的查詢句子。
+        <p>查詢（Query）語法</p>
+
+        var studentQuery2 = from student in student4s
+                                            let avg = (int)student.Scores.Average()  // 使用 let 當做儲存結果的位置
+                                            group student by (avg == 0 ? 0 : avg / 10) into g   // by 後面是用來「分組(Group)」的 Key值
+                                            // 為了避免「除以零」的例外狀況，確定學生的平均值不是零。
+                                            orderby g.Key   // 分組以後才會出現Key值。
+                                                                     // 如果希望「由大到小」排序，請用關鍵字 descending（預設值ascending，由小到大）
+                                            select g;
+
+        foreach (var studentGroup in studentQuery2)
+        {
+            int temp = studentGroup.Key * 10;
+            <br /><br />
+            <b>  @String.Format("平均成績位於 {0} 與 {1} 之間 ", temp, temp + 10);  </b>
+            <hr />
+            @foreach (var student in studentGroup)
+            {
+                @String.Format("   {0}, {1} ===> {2} 分", student.Last, student.First, student.Scores.Average());
+                <br />
+            }
+        }
+}
+
+@{  //===================================================
+      // 另一種寫法，「方法（Method）語法」
+        <br /><br />
+        <hr /><font color="blue"> <p>方法（Method）語法</p>
+                排序後的結果（畫面）無法做到跟上面相同，疑似分組（Group）有問題。但結果正確。
+
+        @foreach (var sg2 in 
+            student4s.GroupBy(m=>((int)m.Scores.Average()== 0 ? 0 : m.Scores.Average() / 10)).OrderBy(n=>n.Key))
+        {
+            int temp = (int)sg2.Key * 10;            
+            <br /><br />
+            <b>  @String.Format("平均成績位於 {0} 與 {1} 之間 ", temp, temp + 10);  </b>
+            <hr />
+            foreach (var student in sg2)
+            {
+                @String.Format("   {0}, {1} ===> {2} 分", student.Last, student.First, student.Scores.Average()); 
+                <br />
+            }
+        }
+        </font>
+
+}
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewData["Title"] = "LINQ_01";
+}
+
+<h1>LINQ_01</h1>
+
+@{
+    //*********************************************
+    //***  以前微軟MSDN官方網站的範例，不確定現在改版後的 https://docs.microsoft.com/ 是否還有保留？？
+    //***  http://msdn.microsoft.com/zh-tw/library/bb397933.aspx 
+    //*********************************************
+
+    // 從一段整數的陣列裡面，抓出「偶數」
+    // The Three Parts of a LINQ Query:
+    //  1. Data source. 整數的陣列
+    int[] numbers = new int[7] { 0, 1, 2, 3, 4, 5, 6 };
+
+    // 2. Query creation.  建立一個「查詢（Query）語法」。類似資料庫的國際標準 T-SQL指令的查詢句子。
+    // numQuery is an IEnumerable<int>
+    var numQuery = from num in numbers
+                               where (num % 2) == 0   // 可以被 2 整除的數字
+                               select num;
+
+    // 3. Query execution.  「執行」查詢 (foreach迴圈)並取出成果！
+    <p>查詢（Query）語法</p>
+
+    foreach (int num in numQuery)
+    {
+        //Console.WriteLine(String.Format("{0,1} ", num));  //如果您是使用 Console專案
+        <p> @String.Format("答案是 {0} 。您答對了嗎？", num) </p>
+    }
+
+    //===================================================
+    // 另一種寫法，「方法（Method）語法」，把上面的(2), (3) 兩個步驟合併在一起
+    <hr /><p>方法（Method）語法</p>
+
+    foreach (int num in numbers.Where(x=>(x % 2) == 0))
+    {
+        //Console.WriteLine(String.Format("{0,1} ", num));  //如果您是使用 Console專案
+        <p><font color="red"> @String.Format("{0} ", num) </font></p>
+    }
+        // 這篇入門文章介紹很多「方法（Method）語法」的範例。值得一讀！
+        // https://blairrobinson757.medium.com/net-linq-queries-with-sql-117a0b7f8cb1 
+
+
+}
+

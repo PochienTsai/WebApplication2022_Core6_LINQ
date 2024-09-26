@@ -1,0 +1,71 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LINQ_04group</title>
+</head>
+<body>
+    <h3>*** group by （分組）***</h3>
+
+    @{
+        //========================================
+        // 因為小類別（Student4.cs）裡面空空如也，所以動手加上幾筆資料、幾個學生的姓名與成績
+        //  Create a data source by using a collection initializer.
+        List<Student4> student4s = new List<Student4>
+        {
+           new Student4 {First="Svetlana", Last="Omelchenko", ID=111, Scores= new List<int> {97, 92, 81, 60}},
+           new Student4 {First="Claire", Last="O'Donnell", ID=112, Scores= new List<int> {75, 84, 91, 39}},
+           new Student4 {First="Sven", Last="Mortensen", ID=113, Scores= new List<int> {88, 94, 65, 91}},
+           new Student4 {First="Cesar", Last="Garcia", ID=114, Scores= new List<int> {97, 89, 85, 82}},
+           new Student4 {First="Debra", Last="Garcia", ID=115, Scores= new List<int> {35, 72, 91, 70}},
+           new Student4 {First="Fadi", Last="Fakhouri", ID=116, Scores= new List<int> {99, 86, 90, 94}},
+           new Student4 {First="Hanying", Last="Feng", ID=117, Scores= new List<int> {93, 92, 80, 87}},
+           new Student4 {First="Hugo", Last="Garcia", ID=118, Scores= new List<int> {92, 90, 83, 78}},
+           new Student4 {First="Lance", Last="Tucker", ID=119, Scores= new List<int> {68, 79, 88, 92}},
+           new Student4 {First="Terry", Last="Adams", ID=120, Scores= new List<int> {99, 82, 81, 79}},
+           new Student4 {First="Eugene", Last="Zabokritski", ID=121, Scores= new List<int> {96, 85, 91, 60}},
+           new Student4 {First="Michael", Last="Tucker", ID=122, Scores= new List<int> {94, 92, 91, 91} }
+        };
+
+
+        // studentQuery2 is an IEnumerable<IGrouping<char, Student>>
+        var studentQuery2 = from student in student4s
+                                          group student by student.Last[0];   // 抓姓氏的第一個英文字母，當作群組的 Key值
+
+        foreach (var studentGroup in studentQuery2)
+        {
+            <h3>studentGroup.Key（Key值） = @studentGroup.Key </h3>   // 抓姓氏的第一個英文字母，當作群組的 Key值
+            // 分組以後才會出現Key值
+
+            @foreach (var student in studentGroup) 
+            {
+                @String.Format("學生姓名：{0}, {1}", student.Last, student.First);
+                <br />
+            }            
+        }
+
+    //===================================================
+    // 另一種寫法，「方法（Method）語法」
+    <hr /><font color="red">方法（Method）語法 <hr />
+
+        @foreach (var sg in student4s.GroupBy(m=>m.Last[0]))
+        {
+            <h3>sg.Key（Key值） = @sg.Key</h3>   // 抓姓氏的第一個英文字母，當作群組的 Key值
+
+            @foreach (var student2 in sg) 
+            {
+                @String.Format("學生姓名：{0}, {1}", student2.Last, student2.First);
+                <br />
+            }            
+        }
+   </font>
+
+    }
+</body>
+</html>

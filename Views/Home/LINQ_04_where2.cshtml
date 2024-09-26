@@ -1,0 +1,70 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LINQ_04_where2  明確搜尋某一個字，必須 100%正確才行（區分大小寫）</title>
+</head>
+<body>
+        <h3>基礎篇 - Where - 精準搜尋，必須 100%正確才行（區分大小寫）</h3>
+    @{
+        //**********************************************
+        // 請參閱 /Models目錄下的 Student4.cs 
+        ////public class Student4
+        ////{
+        ////    public string FirstName { get; set; }
+        ////    public string LastName { get; set; }
+        ////    public int ID { get; set; }   // 比起上一個 Student.cs多了這兩個屬性
+        ////    public List<int> Scores;  // 改用 List<T>取代原本的陣列。 List<T>好用又強！傳統陣列比不上！
+        ////}
+        //**********************************************
+
+        //========================================
+        // 因為小類別（Student4.cs）裡面空空如也，所以動手加上幾筆資料、幾個學生的姓名與成績
+        //  Create a data source by using a collection initializer.
+        List<Student4> student4s = new List<Student4>
+        {
+           new Student4 {First="MIcHaeL",  Scores= new List<int> {80, 80, 80, 80}},
+           new Student4 {First="Michael",    Scores= new List<int> {96, 96, 96, 96} },   //***********
+           new Student4 {First="MiChAel",   Scores= new List<int> {70, 70, 70, 70} },
+           new Student4 {First="MICHAEL",  Scores= new List<int> {50, 50, 50, 50} },
+           new Student4 {First="michael",    Scores= new List<int> {60, 60, 60, 60} }
+        };
+
+        //==================================================
+        // 第一種作法，建立一個「查詢（Query）語法」。類似資料庫的國際標準 T-SQL指令的查詢句子。
+        <p>查詢（Query）語法</p>
+
+        var query = from student in student4s
+                           //where student.First== "Michael"   // 明確搜尋某一個字，必須 100%正確才行（區分大小寫）
+                           where student.First.Equals("Michael")
+                           select student;
+
+        foreach (var s in query)
+        {
+            <p> @String.Format("學生名字：{0}。第一科成績：{1}分。第四科成績：{2}分", 
+                                                                s.First, s.Scores[0], s.Scores[3])) </p>
+        }
+        // 更多範例 https://dotnettutorials.net/lesson/linq-contains-method/
+        
+    //===================================================
+    // 另一種寫法，「方法（Method）語法」
+        <hr /><p>方法（Method）語法</p>
+
+        //foreach (var s in student4s.Where(s=>s.First == "Michael"))   // 明確搜尋某一個字，必須 100%正確才行（區分大小寫）
+        foreach (var s in student4s.Where(s=>s.First.Equals("Michael"))) 
+        {
+            <p> @String.Format("學生名字：{0}。第一科成績：{1}分。第四科成績：{2}分", 
+                                                                 s.First, s.Scores[0], s.Scores[3])) </p>
+        }
+        // 這篇入門文章介紹很多「方法（Method）語法」的範例。值得一讀！
+        // https://blairrobinson757.medium.com/net-linq-queries-with-sql-117a0b7f8cb1 
+}
+
+</body>
+</html>

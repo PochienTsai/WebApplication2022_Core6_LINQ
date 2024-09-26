@@ -1,0 +1,61 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LINQ_04let</title>
+</head>
+<body>
+
+    <h3>*** let 關鍵字 （四科的成績加總）***</h3>
+    條件：四科的平均分數「小餘」第一科  <br /><hr />
+
+    @{
+        // 請參閱 /Models目錄下的 Student4.cs 
+
+        //========================================
+        // 因為小類別（Student4.cs）裡面空空如也，所以動手加上幾筆資料、幾個學生的姓名與成績
+        //  Create a data source by using a collection initializer.
+        List<Student4> student4s = new List<Student4>
+        {
+           new Student4 {First="Svetlana", Last="Omelchenko", ID=111, Scores= new List<int> {97, 92, 81, 60}},
+           new Student4 {First="Claire", Last="O'Donnell", ID=112, Scores= new List<int> {75, 84, 91, 39}},
+           new Student4 {First="Sven", Last="Mortensen", ID=113, Scores= new List<int> {88, 94, 65, 91}},
+           new Student4 {First="Cesar", Last="Garcia", ID=114, Scores= new List<int> {97, 89, 85, 82}},
+           new Student4 {First="Debra", Last="Garcia", ID=115, Scores= new List<int> {35, 72, 91, 70}},
+           new Student4 {First="Fadi", Last="Fakhouri", ID=116, Scores= new List<int> {99, 86, 90, 94}},
+           new Student4 {First="Hanying", Last="Feng", ID=117, Scores= new List<int> {93, 92, 80, 87}},
+           new Student4 {First="Hugo", Last="Garcia", ID=118, Scores= new List<int> {92, 90, 83, 78}},
+           new Student4 {First="Lance", Last="Tucker", ID=119, Scores= new List<int> {68, 79, 88, 92}},
+           new Student4 {First="Terry", Last="Adams", ID=120, Scores= new List<int> {99, 82, 81, 79}},
+           new Student4 {First="Eugene", Last="Zabokritski", ID=121, Scores= new List<int> {96, 85, 91, 60}},
+           new Student4 {First="Michael", Last="Tucker", ID=122, Scores= new List<int> {94, 92, 91, 91} }
+        };
+
+        // studentQuery2 is an IEnumerable<string>
+        var studentQuery2 = from student in student4s
+                            let totalScore = student.Scores[0] + student.Scores[1] + student.Scores[2] + student.Scores[3]
+                            //************ let關鍵字 // 使用 let 當做儲存結果的位置
+                            //let totalScore = student.Scores.Sum() //或是改寫成這樣，用C#內建的 .Sum()方法來計算加總
+
+                            where totalScore / 4 < student.Scores[0]  // 條件：四科的平均分數「小餘」第一科
+
+                            //select student.First + " " + student.Last;   // 直接把學生的姓名  合併在一起
+                            select new { AllCombineName = student.First + " " + student.Last , TotalS = totalScore, FirstScore= student.Scores[0] };   
+                            // 重新更改「欄位名稱」
+
+            foreach (var student in studentQuery2) 
+            {
+                @String.Format("學生：{0}。四科分數加總：{1}。四科平均：{2}。第一科成績：{3}。", 
+                                               student.AllCombineName , student.TotalS , student.TotalS/4 , student.FirstScore);
+                <br />
+            }            
+
+    }
+</body>
+</html>

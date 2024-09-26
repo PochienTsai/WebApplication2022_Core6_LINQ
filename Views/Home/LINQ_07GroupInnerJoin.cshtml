@@ -1,0 +1,75 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LINQ_07GroupInnerJoin  *** GroupInnerJoin ***</title>
+</head>
+<body>
+    @{
+        // 請參閱 /Models目錄下的 GProduct.cs與GCategory.cs
+       // 如同資料庫的兩個"關連式資料表"將會 Join在一起
+        // Specify the first data source. 商品種類 -- 這個產品屬於哪一種分類？
+        List<GCategory> categories = new List<GCategory>()   { 
+                new GCategory(){ Name="Beverages飲料",        ID=001},
+                new GCategory(){ Name="Condiments調味品", ID=002},
+                new GCategory(){ Name="Vegetables蔬菜",      ID=003},
+                new GCategory() { Name="Grains穀物",  ID=004},
+                new GCategory() { Name="Fruit水果",     ID=005}            
+            };
+
+        // Specify the second data source.   單一的產品
+        List<GProduct> products = new List<GProduct>()   {
+              new GProduct{ Name="Cola",       CategoryID=001},   // 可樂（Cola）隸屬於的商品種類（如上面的 Beverages飲料,  ID=001）
+              new GProduct{ Name="Tea",         CategoryID=001},
+              new GProduct{ Name="Mustard", CategoryID=002},
+              new GProduct{ Name="Pickles",    CategoryID=002},
+              new GProduct{ Name="Carrots",   CategoryID=003},
+              new GProduct{ Name="Bok Choy", CategoryID=003},
+              new GProduct{ Name="Peaches",   CategoryID=005},
+              new GProduct{ Name="Melons",    CategoryID=005},
+            };    
+    
+        //==================================================
+        // 第一種作法，建立一個「查詢（Query）語法」。類似資料庫的國際標準 T-SQL指令的查詢句子。
+        // This is a demonstration query to show the output of a "raw" group join. 
+        // A more typical group join is shown in the GroupInnerJoin method.
+        var groupJoinQuery2 =  from category in categories
+                                               orderby category.ID
+                                               join prod in products on category.ID equals prod.CategoryID into prodGroup
+                                               select new
+                                               {
+                                                    Category = category.Name,
+                                                    Products = from prod2 in prodGroup
+                                                                      orderby prod2.Name
+                                                                      select prod2
+                                               };
+
+        // Store the count of total items (for demonstration only).
+        int totalItems = 0;
+        <h3>*** Group Inner Join ***</h3>
+
+        // A nested foreach statement is required to access group items.
+        foreach (var productGroup in groupJoinQuery2)
+        {
+            <br /><br />
+            <font color="blue"> @productGroup.Category </font>
+
+            foreach (var prodItem in productGroup.Products)
+            {
+                totalItems++;
+                <br /> @String.Format("商品種類 : {0}  -  商品種類ID : {1}", prodItem.Name, prodItem.CategoryID)
+            }
+        }
+        <hr /> @String.Format("*** Group Inner Join ***  : {0} items in {1} named groups", 
+                                                                                    totalItems, groupJoinQuery2.Count())
+
+           
+    }
+</body>
+</html>

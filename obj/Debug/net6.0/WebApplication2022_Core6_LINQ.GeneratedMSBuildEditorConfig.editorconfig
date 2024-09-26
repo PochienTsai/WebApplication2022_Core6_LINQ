@@ -1,0 +1,123 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = WebApplication2022_Core6_LINQ
+build_property.RootNamespace = WebApplication2022_Core6_LINQ
+build_property.ProjectDir = /Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/LINQ_01.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9MSU5RXzAxLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/LINQ_02.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9MSU5RXzAyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/LINQ_03.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9MSU5RXzAzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/LINQ_04from.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9MSU5RXzA0ZnJvbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/LINQ_04group.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9MSU5RXzA0Z3JvdXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/LINQ_04group_into_orderby.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9MSU5RXzA0Z3JvdXBfaW50b19vcmRlcmJ5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/LINQ_04let.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9MSU5RXzA0bGV0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/LINQ_04letgroup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9MSU5RXzA0bGV0Z3JvdXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/LINQ_04_orderby.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9MSU5RXzA0X29yZGVyYnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/LINQ_04_select_alias.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9MSU5RXzA0X3NlbGVjdF9hbGlhcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/LINQ_04_where.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9MSU5RXzA0X3doZXJlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/LINQ_04_where2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9MSU5RXzA0X3doZXJlMi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/LINQ_04_where_contains.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9MSU5RXzA0X3doZXJlX2NvbnRhaW5zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/LINQ_05InnerJoin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9MSU5RXzA1SW5uZXJKb2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/LINQ_06GroupJoin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9MSU5RXzA2R3JvdXBKb2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/LINQ_06GroupJoin3.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9MSU5RXzA2R3JvdXBKb2luMy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/LINQ_07GroupInnerJoin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9MSU5RXzA3R3JvdXBJbm5lckpvaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/LINQ_08LeftOuterJoin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9MSU5RXzA4TGVmdE91dGVySm9pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/LINQ_08LeftOuterJoin2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9MSU5RXzA4TGVmdE91dGVySm9pbjIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Qcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/pochientsai/Library/CloudStorage/Dropbox/程式設計/Web/MIS200lab/ASP NET MVC 遠距影音教學/practice_prj/WebApplication2022_Core6_LINQ/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-g1c2r8lkj7

@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LINQ_02</title>
+</head>
+<body>
+         <p>從一段整數的陣列裡面，抓出「偶數」</p>
+         <p>透過呼叫.ToList()方法或.ToArray()方法，您可同時快取單一集合物件中的所有資料。</p>
+    @{
+                // The Three Parts of a LINQ Query:
+                //  1. Data source. 整數的陣列
+                int[] numbers = new int[7] { 0, 1, 2, 3, 4, 5, 6 };
+
+                // 2. Query creation.  建立一個查詢
+                // numQuery is an IEnumerable<int>
+                List<int> numQuery2 = (from num in numbers
+                                                       where (num % 2) == 0
+                                                       select num).ToList();
+
+                foreach (int num2 in numQuery2)
+                {
+                    <p><font color="blue"> @num2 </font></p> 
+                }
+                //====================================
+                <p> 透過呼叫.ToList()方法或.ToArray()方法，您可同時快取單一集合物件中的所有資料。  </p>
+                //====================================
+
+                var numQuery3 = (from num in numbers
+                                               where (num % 2) == 0
+                                               select num).ToArray();
+
+                foreach (int num3 in numQuery3)
+                {
+                    <p><font color="green"> @num3.ToString() </font></p> 
+                }
+              // 這篇入門文章介紹很多「方法（Method）語法」的範例。值得一讀！
+              // https://blairrobinson757.medium.com/net-linq-queries-with-sql-117a0b7f8cb1           
+        }
+
+</body>
+</html>

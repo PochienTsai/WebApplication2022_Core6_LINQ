@@ -1,0 +1,75 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LINQ_04_where （基礎篇）</title>
+</head>
+<body>
+
+    <h3>基礎篇</h3>
+@{
+        //**********************************************
+        // 請參閱 /Models目錄下的 Student4.cs 
+        ////public class Student4
+        ////{
+        ////    public string FirstName { get; set; }
+        ////    public string LastName { get; set; }
+        ////    public int ID { get; set; }   // 比起上一個 Student.cs多了這兩個屬性
+        ////    public List<int> Scores;  // 改用 List<T>取代原本的陣列。 List<T>好用又強！傳統陣列比不上！
+        ////}
+        //**********************************************
+
+        //========================================
+        // 因為小類別（Student4.cs）裡面空空如也，所以動手加上幾筆資料、幾個學生的姓名與成績
+        //  Create a data source by using a collection initializer.
+        List<Student4> student4s = new List<Student4>
+        {
+           new Student4 {First="Svetlana", Last="Omelchenko", ID=111, Scores= new List<int> {97, 92, 81, 60}},
+           new Student4 {First="Claire", Last="O'Donnell", ID=112, Scores= new List<int> {75, 84, 91, 39}},
+           new Student4 {First="Sven", Last="Mortensen", ID=113, Scores= new List<int> {88, 94, 65, 91}},
+           new Student4 {First="Cesar", Last="Garcia", ID=114, Scores= new List<int> {97, 89, 85, 82}},
+           new Student4 {First="Debra", Last="Garcia", ID=115, Scores= new List<int> {35, 72, 91, 70}},
+           new Student4 {First="Fadi", Last="Fakhouri", ID=116, Scores= new List<int> {99, 86, 90, 94}},
+           new Student4 {First="Hanying", Last="Feng", ID=117, Scores= new List<int> {93, 92, 80, 87}},
+           new Student4 {First="Hugo", Last="Garcia", ID=118, Scores= new List<int> {92, 90, 83, 78}},
+           new Student4 {First="Lance", Last="Tucker", ID=119, Scores= new List<int> {68, 79, 88, 92}},
+           new Student4 {First="Terry", Last="Adams", ID=120, Scores= new List<int> {99, 82, 81, 79}},
+           new Student4 {First="Eugene", Last="Zabokritski", ID=121, Scores= new List<int> {96, 85, 91, 60}},
+           new Student4 {First="Michael", Last="Tucker", ID=122, Scores= new List<int> {94, 92, 91, 91} }
+        };
+
+        //==================================================
+        // 第一種作法，建立一個「查詢（Query）語法」。類似資料庫的國際標準 T-SQL指令的查詢句子。
+        <p>查詢（Query）語法</p>
+
+        var query = from student in student4s
+                    where student.Scores[0] > 90 && student.Scores[3] < 80
+                    select student;
+
+        foreach (var s in query)
+        {
+            <p> @String.Format("學生姓氏：{0}。第一科成績：{1}分。第四科成績：{2}分", 
+                                                                s.Last, s.Scores[0], s.Scores[3])) </p>
+        }
+        
+    //===================================================
+    // 另一種寫法，「方法（Method）語法」
+        <hr /><p>方法（Method）語法</p>
+
+        foreach (var s in student4s.Where(x=>(x.Scores[0] > 90 && x.Scores[3] < 80)))
+        {
+            <p> @String.Format("學生姓氏：{0}。第一科成績：{1}分。第四科成績：{2}分", 
+                                                                s.Last, s.Scores[0], s.Scores[3])) </p>
+        }
+        // 這篇入門文章介紹很多「方法（Method）語法」的範例。值得一讀！
+        // https://blairrobinson757.medium.com/net-linq-queries-with-sql-117a0b7f8cb1 
+}
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LINQ_03</title>
+</head>
+<body>
+    <h3>透過LINQ查詢 ArrayList（&quot;非&quot;泛型 IEnumerable介面的類型）</h3>
+    <p>在每一位學生的成績裡面，第一個科目成績高於95分</p>
+    <hr />
+    @{
+        //**********************************************
+        // 請參閱 /Models目錄下的 Student.cs 
+        ////public class Student
+        ////{
+        ////    public string FirstName { get; set; }
+        ////    public string LastName { get; set; }
+        ////    public int[] Scores { get; set; }  // 每個學生都有 "好幾次" 考試的成績，所以用陣列（Array）
+        ////}
+        //**********************************************
+
+        System.Collections.ArrayList arrList = new System.Collections.ArrayList();   //命名空間 System.Collections
+
+        //========================================
+        // 請參閱 /Models目錄下的 Student.cs 
+        // 因為小類別（Student.cs）裡面空空如也，所以動手加上幾筆資料、幾個學生的姓名與成績
+        arrList.Add(
+            new Student
+            {
+                FirstName = "Svetlana（史文特拉娜）",
+                LastName = "Omelchenko（第一位學生）",
+                Scores = new int[] { 98, 92, 81, 60 }
+            });
+
+        arrList.Add(
+            new Student
+            {
+                FirstName = "Claire（克萊兒）",
+                LastName = "O’Donnell（第二位學生）",
+                Scores = new int[] { 75, 84, 91, 39 }
+            });
+
+        arrList.Add(
+            new Student
+            {
+                FirstName = "Sven（史文）",
+                LastName = "Mortensen（第三位學生）",
+                Scores = new int[] { 88, 94, 65, 91 }
+            });
+
+        arrList.Add(
+            new Student
+            {
+                FirstName = "Cesar（凱薩）",
+                LastName = "Garcia（第四位學生）",
+                Scores = new int[] { 97, 89, 85, 82 }
+            });
+        //========================================
+
+        // 第一種作法，建立一個「查詢（Query）語法」。類似資料庫的國際標準 T-SQL指令的查詢句子。
+        <p>查詢（Query）語法</p>
+
+        var query = from Student student in arrList  // arrList是「ArrayList」，所以要特別強調資料型態(Student類別) 
+                            where student.Scores[0] > 95   // 第一個科目成績高於95分
+                            select student;
+
+        foreach (Student s in query)
+        {
+            <p> @String.Format("{0} : {1}",s.LastName, s.Scores[0]) </p>
+        }   
+        
+       //===================================================
+       // 另一種寫法（不值得參考）
+        <hr />
+        //foreach (Student s2 in arrList)
+        //{
+        //    if (s2.Scores[0] > 95)
+        //    {
+        //        <p> @String.Format("{0} : {1}",s2.LastName, s2.Scores[0]) </p>
+        //    }            
+        //}   
+        // 這篇入門文章介紹很多「方法（Method）語法」的範例。值得一讀！
+        // https://blairrobinson757.medium.com/net-linq-queries-with-sql-117a0b7f8cb1 
+   }
+</body>
+</html>
