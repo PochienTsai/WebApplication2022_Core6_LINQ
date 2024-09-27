@@ -17,7 +17,7 @@
     int[] numbers = new int[7] { 0, 1, 2, 3, 4, 5, 6 };
 
     // 2. Query creation.  建立一個「查詢（Query）語法」。類似資料庫的國際標準 T-SQL指令的查詢句子。
-    // numQuery is an IEnumerable<int>
+    // numQuery is an IEnumerable<int> , (from 資料來源(想篩選的數據) where 過濾條件 select 輸出結果）
     var numQuery = from num in numbers
                                where (num % 2) == 0   // 可以被 2 整除的數字
                                select num;
