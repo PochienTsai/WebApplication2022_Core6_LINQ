@@ -44,7 +44,6 @@
                            //where student.First== "Michael"   // 明確搜尋某一個字，必須 100%正確才行（區分大小寫）
                            where student.First.Equals("Michael")
                            select student;
-
         foreach (var s in query)
         {
             <p> @String.Format("學生名字：{0}。第一科成績：{1}分。第四科成績：{2}分", 

@@ -22,7 +22,7 @@
                 // numQuery is an IEnumerable<int>
                 List<int> numQuery2 = (from num in numbers
                                                        where (num % 2) == 0
-                                                       select num).ToList();
+                                                       select num).ToList();//在此因遇到Tolist程式才會實際轉成SQL運行
 
                 foreach (int num2 in numQuery2)
                 {

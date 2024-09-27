@@ -47,7 +47,7 @@
         //==================================================
         // 第一種作法，建立一個「查詢（Query）語法」。類似資料庫的國際標準 T-SQL指令的查詢句子。
         <p>查詢（Query）語法</p>
-
+        //(from 資料來源(想篩選的數據) where 過濾條件 select 輸出結果）
         var query = from student in student4s
                     where student.Scores[0] > 90 && student.Scores[3] < 80
                     select student;

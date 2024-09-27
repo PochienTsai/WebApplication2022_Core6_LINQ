@@ -17,7 +17,7 @@
         // 第一種作法，建立一個「查詢（Query）語法」。類似資料庫的國際標準 T-SQL指令的查詢句子。
         <p>查詢（Query）語法</p>        
         string[] words = { "aPPLE", "BlUeBeRrY", "cHeRry" };
-
+        // IEnumerable最適合用來「呈現資料,速度快」，Iqueryable適合用來存放「查詢結果」
         var query = from w in words
                            select new { Upper = w.ToUpper(), Lower = w.ToLower() };
                            //        除了更改欄位名稱以外，也可以使用其他方法        
